@@ -1,16 +1,17 @@
 name: Github Actions Demo
-on:
+on: [pull_request]
   # push: 
   #   branches:
   #     - develop1
   # pull_request:
-  issues:
-    types:
-      - reopened
-      - opened
-      - closed
+  # issues:
+  #   types:
+  #     - reopened
+  #     - opened
+  #     - closed
 jobs:
-  Explore-GitHub-Actions:
+  eslint:
+    name: runner / eslint
     runs-on: ubuntu-latest
     steps:
       - name: This step checks out a copy of your repository.
