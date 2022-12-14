@@ -4,16 +4,18 @@ on:
     branches:
       - develop1
   pull_request:
+    branches:
+      - develop1
 jobs:
   Explore-GitHub-Actions:
   
     runs-on: ubuntu-latest
     steps:
       - name: "review dog"
-        uses: microsoft/action-armttk/.github/workflows/arm-ttk@0.0.5
+        uses: reviewdog/action-eclint@v1
         with:
-          bicepFile: main.bicep
-          workingPath: .
+          reporter: github-pr-review # Change reporter.
+          eclint_flags: 'src/'
       - name: Print Hello
         run: echo "Hello Work"
       - name: This step checks out a copy of your repository.
