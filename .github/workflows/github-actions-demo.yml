@@ -1,8 +1,10 @@
 name: Github Actions Demo
 on: 
-  pull_request:
+  push: 
     branches:
-      - develop1
+          - develop1
+  pull_request:
+    
 jobs:
   Explore-GitHub-Actions:
   
