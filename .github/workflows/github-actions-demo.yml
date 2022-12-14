@@ -34,5 +34,6 @@ jobs:
         run: npm run lint
       - name: run build
         run: npm run build
+      - run: npm install -g surge
       - name: Deploying on Surge
         run: surge ./build $DOMAIN_DELOY --token ${{secrets.SURGE_TOKEN}}
