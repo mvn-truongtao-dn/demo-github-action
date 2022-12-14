@@ -1,13 +1,16 @@
 name: Github Actions Demo
 on: 
-  push:
-    branches:
-      - develop1
+  # push:
+  #   branches:
+  #     - develop1
   pull_request:
 jobs:
   Explore-GitHub-Actions:
+  
     runs-on: ubuntu-latest
     steps:
+      - name: "review dog"
+        uses: microsoft/action-armttk/.github/workflows/arm-ttk@0.0.5
       - name: Print Hello
         run: echo "Hello Work"
       - name: This step checks out a copy of your repository.
