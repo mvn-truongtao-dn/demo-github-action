@@ -1,23 +1,18 @@
 name: Github Actions Demo
-on: 
-  
+on:
+  push: 
+    branches:
+      - develop1
   pull_request:
   issues:
-  types:
-    - reopened
-    - opened
+    types:
+      - reopened
+      - opened
+      - closed
 jobs:
   Explore-GitHub-Actions:
-  
     runs-on: ubuntu-latest
     steps:
-      - name: "review dog"
-        uses: reviewdog/action-eslint@v1
-        with:
-          reporter: github-pr-review # Change reporter.
-          eslint_flags: 'src/'
-      - name: Print Hello
-        run: echo "Hello Work"
       - name: This step checks out a copy of your repository.
         uses: actions/checkout@v3
       - name: setup node
@@ -25,8 +20,11 @@ jobs:
         with:
           node-version: 16.14.x
           cache: npm
-      - name: install node 
+      - name: install node
         run: npm i
+      - uses: reviewdog/action-eslint@v1
+        with:
+          reporter: github-check
+          eslint_flags: 'src/'
       - name: eslint
         run: npm run lint
-      
