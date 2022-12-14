@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "review dog"
-        uses: reviewdog/action-eclint@v1
+        uses: reviewdog/action-eslint@v1
         with:
           reporter: github-pr-review # Change reporter.
-          eclint_flags: 'src/'
+          eslint_flags: 'src/'
       - name: Print Hello
         run: echo "Hello Work"
       - name: This step checks out a copy of your repository.
