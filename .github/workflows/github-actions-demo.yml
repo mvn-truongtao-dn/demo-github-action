@@ -1,10 +1,11 @@
 name: Github Actions Demo
 on: 
-  push: 
-    branches:
-          - develop1
+  
   pull_request:
-    
+  issues:
+  types:
+    - reopened
+    - opened
 jobs:
   Explore-GitHub-Actions:
   
