@@ -3,7 +3,6 @@ import './App.css';
 import React from 'react';
 
 function App() {
-  console.log("ok");
   return (
     <div className='App'>
       <header className='App-header'>
@@ -17,7 +16,7 @@ function App() {
           target='_blank'
           rel='noopener noreferrer'
         >
-          Learn React
+          Success
         </a>
       </header>
     </div>
