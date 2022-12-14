@@ -10,7 +10,7 @@ on:
   #     - opened
   #     - closed
 env:
-  DOMAIN_DELOY: http://aware-pocket.surge.sh/  
+  DOMAIN_DELOY: http://aware-pocket.surge.sh/
 jobs:
   eslint:
     name: runner / eslint
