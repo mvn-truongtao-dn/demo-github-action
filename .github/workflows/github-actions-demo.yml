@@ -16,24 +16,18 @@ jobs:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
-      # - name: This step checks out a copy of your repository.
       - uses: actions/checkout@v2
       - run: npm ci
-      # - name: setup node
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: npm
-      # - name: install node
       - run: npm install
       - uses: reviewdog/action-eslint@v1
         with:
           reporter: github-pr-review 
           eslint_flags: 'src/'
-      # - name: eslint
       - run: npm run lint
-      # - name: run build
       - run: npm run build
       - run: npm install -g surge
-      # - name: Deploying on Surge
       - run: surge ./build $DOMAIN_DELOY --token ${{secrets.SURGE_TOKEN}}
