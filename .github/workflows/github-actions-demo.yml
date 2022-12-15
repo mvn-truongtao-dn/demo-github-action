@@ -27,6 +27,7 @@ jobs:
         with:
           reporter: github-pr-review 
           eslint_flags: 'src/'
+          
       - run: npm run lint
       - run: npm run build
       - run: npm install -g surge
