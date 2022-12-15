@@ -5,6 +5,7 @@ import React from 'react';
 function App() {
   console.log("Ok");
   console.log("12");
+  console.log("123");
   return (
     <div className='App'>
       <header className='App-header'>
