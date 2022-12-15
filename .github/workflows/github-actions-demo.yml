@@ -1,34 +1,52 @@
-name: Github Actions Demo
-on: 
-  push: 
-    branches:
-      - develop1
-  pull_request:
-  # issues:
-  #   types:
-  #     - reopened
-  #     - opened
-  #     - closed
-env:
-  DOMAIN_DELOY: http://aware-pocket.surge.sh/
+# name: Github Actions Demo
+# on: 
+#   push: 
+#     branches:
+#       - develop1
+#   pull_request:
+#   # issues:
+#   #   types:
+#   #     - reopened
+#   #     - opened
+#   #     - closed
+# env:
+#   DOMAIN_DELOY: http://aware-pocket.surge.sh/
+# jobs:
+#   eslint:
+#     name: runner / eslint
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - run: npm ci
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: '16'
+#           cache: npm
+#       - run: npm install
+#       - uses: reviewdog/action-eslint@v1
+#         with:
+#           reporter: github-pr-review 
+#           eslint_flags: 'src/'
+
+#       - run: npm run lint
+#       - run: npm run build
+#       - run: npm install -g surge
+#       - run: surge ./build $DOMAIN_DELOY --token ${{secrets.SURGE_TOKEN}}
+name: reviewdog
+
+on: pull_request
+
 jobs:
   eslint:
     name: runner / eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v2
         with:
-          node-version: '16'
-          cache: npm
-      - run: npm install
+          node-version: "14"
+      - run: yarn install
       - uses: reviewdog/action-eslint@v1
         with:
-          reporter: github-pr-review 
-          eslint_flags: 'src/'
-          
-      - run: npm run lint
-      - run: npm run build
-      - run: npm install -g surge
-      - run: surge ./build $DOMAIN_DELOY --token ${{secrets.SURGE_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review # Change reporter.

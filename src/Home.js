@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Home() {
     console.log("home");
-    console.log("home1");
+    console.log("tinh non");
 
   return (
     <div>Home</div>
